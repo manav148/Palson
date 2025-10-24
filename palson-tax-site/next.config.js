@@ -1,16 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/Palson',
   images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    unoptimized: true, // Required for static export
   },
-  async redirects() {
-    return [
-      // Add legacy URL redirects here when migrating
-      // Example: { source: '/old-services', destination: '/services', permanent: true }
-    ];
-  },
+  // Redirects don't work with static export - handle via _redirects file or client-side
 };
 
 module.exports = nextConfig;
