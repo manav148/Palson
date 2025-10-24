@@ -1,18 +1,12 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, X, ArrowRight } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Transparent Pricing - Palson Tax",
-  description:
-    "Clear, upfront pricing for all our tax and accounting services. No hidden fees. Choose the package that fits your needs.",
-  alternates: {
-    canonical: "/pricing",
-  },
-};
+import { CheckCircle2, X, ArrowRight, Sparkles, Zap } from "lucide-react";
+import { AnimatedCalculator, AnimatedCoins, InvoiceIllustration } from "@/components/artwork";
 
 const tiers = [
   {
@@ -98,85 +92,176 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-navy to-indigo py-64 lg:py-96">
-        <div className="container-custom text-center">
-          <Badge variant="secondary" className="mb-16 mx-auto">
-            Pricing
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-24">
-            Transparent, Fair Pricing
-          </h1>
-          <p className="text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
-            No hidden fees. No surprises. Choose the package that fits your needs,
-            or let us customize a solution for you.
-          </p>
+      <section className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-teal-600 py-64 lg:py-96 overflow-hidden">
+        <div className="absolute inset-0 accounting-grid opacity-10"></div>
+
+        <div className="container-custom relative">
+          <div className="grid md:grid-cols-2 gap-48 items-center">
+            <motion.div
+              className="text-center md:text-left"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Badge variant="secondary" className="mb-16 inline-flex items-center gap-8">
+                  <Sparkles className="w-12 h-12" />
+                  Pricing Plans
+                </Badge>
+              </motion.div>
+
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-24">
+                Transparent,<br />
+                <span className="gradient-text bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent">
+                  Fair Pricing
+                </span>
+              </h1>
+
+              <p className="text-xl text-indigo-100 max-w-2xl mx-auto md:mx-0 leading-relaxed mb-32">
+                No hidden fees. No surprises. Choose the package that fits your needs,
+                or let us customize a solution for you.
+              </p>
+
+              <div className="flex flex-wrap gap-16 justify-center md:justify-start">
+                <Link
+                  href="#pricing-tiers"
+                  className="inline-flex items-center gap-8 px-32 py-16 bg-white text-indigo-600 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  View Plans
+                  <ArrowRight className="w-16 h-16" />
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="hidden md:flex justify-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+              <div className="animate-float">
+                <AnimatedCalculator />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Pricing Tiers */}
-      <section className="section-padding bg-surface">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-32 max-w-7xl mx-auto">
-            {tiers.map((tier) => (
-              <Card
-                key={tier.name}
-                className={`relative ${
-                  tier.popular
-                    ? "border-t-4 border-t-teal shadow-xl scale-105"
-                    : "border-t-4 border-t-slate-300"
-                }`}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-16 left-1/2 -translate-x-1/2">
-                    <Badge className="shadow-lg">Most Popular</Badge>
-                  </div>
-                )}
-                <CardHeader>
-                  <CardTitle className="text-2xl">{tier.name}</CardTitle>
-                  <CardDescription className="text-base">
-                    {tier.tagline}
-                  </CardDescription>
-                  <div className="mt-24">
-                    <div className="flex items-baseline gap-8">
-                      <span className="text-4xl font-bold text-navy">{tier.price}</span>
-                      <span className="text-sm text-slate-600">{tier.period}</span>
-                    </div>
-                  </div>
-                  <p className="text-sm text-slate-600 mt-12 leading-relaxed">
-                    {tier.description}
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    size="lg"
-                    className="w-full mb-24"
-                    variant={tier.popular ? "default" : "outline"}
-                    asChild
-                  >
-                    <Link href="/contact">{tier.cta}</Link>
-                  </Button>
+      <section id="pricing-tiers" className="py-64 lg:py-96 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-50"></div>
 
-                  <div className="space-y-12">
-                    {tier.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-8">
-                        <CheckCircle2 className="h-16 w-16 text-success mt-2 flex-shrink-0" />
-                        <span className="text-sm text-slate-700">{feature}</span>
+        <div className="container-custom relative">
+          <motion.div
+            className="text-center mb-64"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-16">
+              <span className="gradient-text">Choose Your Plan</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Flexible options designed to grow with your needs
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-32 max-w-7xl mx-auto">
+            {tiers.map((tier, tierIndex) => (
+              <motion.div
+                key={tier.name}
+                className="relative h-full"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: tierIndex * 0.2 }}
+              >
+                <Card
+                  className={`card-glow h-full relative ${
+                    tier.popular
+                      ? "border-2 border-indigo-500 shadow-2xl scale-105 bg-gradient-to-b from-white to-indigo-50/50"
+                      : "border-2 border-slate-200 hover:border-indigo-300 bg-white"
+                  } transition-all duration-500`}
+                >
+                  {tier.popular && (
+                    <div className="absolute -top-16 left-1/2 -translate-x-1/2">
+                      <Badge className="shadow-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-none px-16 py-8 animate-pulse-slow">
+                        <Zap className="w-12 h-12 mr-4" />
+                        Most Popular
+                      </Badge>
+                    </div>
+                  )}
+
+                  <CardHeader className="pb-24">
+                    <CardTitle className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                      {tier.name}
+                    </CardTitle>
+                    <CardDescription className="text-base text-slate-600">
+                      {tier.tagline}
+                    </CardDescription>
+                    <div className="mt-24">
+                      <div className="flex items-baseline gap-8">
+                        <span className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                          {tier.price}
+                        </span>
+                        <span className="text-sm text-slate-600">{tier.period}</span>
                       </div>
-                    ))}
-                    {tier.notIncluded.length > 0 && (
-                      <>
-                        <div className="my-16 border-t border-slate-200" />
-                        {tier.notIncluded.map((feature, idx) => (
-                          <div key={idx} className="flex items-start gap-8">
-                            <X className="h-16 w-16 text-slate-400 mt-2 flex-shrink-0" />
-                            <span className="text-sm text-slate-400">{feature}</span>
-                          </div>
-                        ))}
-                      </>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+                    </div>
+                    <p className="text-sm text-slate-600 mt-16 leading-relaxed">
+                      {tier.description}
+                    </p>
+                  </CardHeader>
+
+                  <CardContent>
+                    <Button
+                      size="lg"
+                      className={`w-full mb-32 ${
+                        tier.popular
+                          ? "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700"
+                          : ""
+                      }`}
+                      variant={tier.popular ? "default" : "outline"}
+                      asChild
+                    >
+                      <Link href="/contact" className="group">
+                        {tier.cta}
+                        <ArrowRight className="ml-8 h-16 w-16 group-hover:translate-x-4 transition-transform" />
+                      </Link>
+                    </Button>
+
+                    <div className="space-y-16">
+                      {tier.features.map((feature, idx) => (
+                        <motion.div
+                          key={idx}
+                          className="flex items-start gap-12"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: tierIndex * 0.2 + idx * 0.05 }}
+                        >
+                          <CheckCircle2 className="h-20 w-20 text-emerald-500 mt-2 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 leading-relaxed">{feature}</span>
+                        </motion.div>
+                      ))}
+                      {tier.notIncluded.length > 0 && (
+                        <>
+                          <div className="my-20 border-t border-slate-200" />
+                          {tier.notIncluded.map((feature, idx) => (
+                            <div key={idx} className="flex items-start gap-12 opacity-50">
+                              <X className="h-20 w-20 text-slate-400 mt-2 flex-shrink-0" />
+                              <span className="text-sm text-slate-400 leading-relaxed">{feature}</span>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
 
