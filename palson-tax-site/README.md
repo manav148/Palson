@@ -79,7 +79,48 @@ palson-tax-site/
 - **Border Radius**: 0.5rem default, 1.5rem for cards
 - **Shadows**: Soft elevation with hover effects
 
-## 🚀 Getting Started
+## 🚀 Deployment
+
+### GitHub Pages (Recommended)
+
+This site is configured for automatic deployment to GitHub Pages:
+
+1. **Enable GitHub Pages**:
+   - Go to repository **Settings** → **Pages**
+   - Set **Source** to "GitHub Actions"
+
+2. **Deploy**:
+   - Merge to `main` or `master` branch
+   - GitHub Actions will automatically build and deploy
+
+3. **Live Site**:
+   - https://manav148.github.io/Palson/
+
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for detailed instructions, custom domain setup, and troubleshooting.
+
+### Other Deployment Options
+
+<details>
+<summary>Vercel (Alternative)</summary>
+
+```bash
+npm install -g vercel
+vercel
+```
+
+Note: Remove `basePath` and `output: 'export'` from `next.config.js` for Vercel.
+</details>
+
+<details>
+<summary>Netlify (Alternative)</summary>
+
+Build command: `npm run build`
+Publish directory: `out`
+
+Note: Works with current static export configuration.
+</details>
+
+## 💻 Local Development
 
 ### Prerequisites
 
@@ -95,14 +136,15 @@ npm install
 # Run development server
 npm run dev
 
-# Build for production
+# Build for production (static export)
 npm run build
 
-# Start production server
-npm start
+# Preview static build locally
+npx serve@latest out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Development: [http://localhost:3000](http://localhost:3000)
+Production preview: [http://localhost:3000/Palson](http://localhost:3000/Palson)
 
 ## 📄 Page Templates
 
