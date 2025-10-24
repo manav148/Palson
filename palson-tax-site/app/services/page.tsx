@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,16 +14,9 @@ import {
   Calculator,
   ArrowRight,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Tax & Accounting Services",
-  description:
-    "Comprehensive tax preparation, planning, bookkeeping, payroll, and IRS resolution services for individuals and small businesses.",
-  alternates: {
-    canonical: "/services",
-  },
-};
+import { InvoiceIllustration, AnimatedCoins } from "@/components/artwork";
 
 const services = [
   {
@@ -114,68 +109,143 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-navy to-indigo py-64 lg:py-96">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <Badge variant="secondary" className="mb-16">
-              Services
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-24">
-              Comprehensive Tax & Accounting Solutions
-            </h1>
-            <p className="text-xl text-slate-200 leading-relaxed">
-              From individual tax prep to complex business accounting, our team brings
-              decades of experience and proactive strategies to help you succeed.
-            </p>
+      <section className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-teal-600 py-64 lg:py-96 overflow-hidden">
+        <div className="absolute inset-0 accounting-grid opacity-10"></div>
+
+        <div className="container-custom relative">
+          <div className="grid md:grid-cols-2 gap-48 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Badge variant="secondary" className="mb-16 inline-flex items-center gap-8">
+                  <Sparkles className="w-12 h-12" />
+                  Our Services
+                </Badge>
+              </motion.div>
+
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-24">
+                Comprehensive Tax &<br />
+                <span className="gradient-text bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent">
+                  Accounting Solutions
+                </span>
+              </h1>
+
+              <p className="text-xl text-indigo-100 leading-relaxed mb-32">
+                From individual tax prep to complex business accounting, our team brings
+                decades of experience and proactive strategies to help you succeed.
+              </p>
+
+              <div className="flex flex-wrap gap-16">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-8 px-32 py-16 bg-white text-indigo-600 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  Get Started
+                  <ArrowRight className="w-16 h-16" />
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="hidden md:flex justify-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+              <div className="animate-float">
+                <InvoiceIllustration />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding bg-surface">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
-            {services.map((service) => {
+      <section className="py-64 lg:py-96 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-50"></div>
+
+        <div className="container-custom relative">
+          <motion.div
+            className="text-center mb-64"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-16">
+              <span className="gradient-text">Our Full Suite of Services</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Professional solutions tailored to your unique financial needs
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 max-w-7xl mx-auto">
+            {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card
+                <motion.div
                   key={service.slug}
-                  className="card-hover border-t-4 border-t-teal"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <CardHeader>
-                    <div className="w-56 h-56 rounded-xl bg-teal/10 flex items-center justify-center mb-16">
-                      <Icon className="h-32 w-32 text-teal" />
-                    </div>
-                    <CardTitle className="text-2xl">{service.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-12 mb-24">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-8 text-sm">
-                          <CheckCircle2 className="h-16 w-16 text-success mt-2 flex-shrink-0" />
-                          <span className="text-slate-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex items-center justify-between pt-16 border-t border-slate-200">
-                      <div>
-                        <div className="text-sm text-slate-600 mb-4">Pricing</div>
-                        <div className="text-lg font-semibold text-navy">
-                          {service.pricing}
+                  <Card className="card-glow h-full border-2 border-slate-200 hover:border-indigo-300 bg-white transition-all duration-500 hover:shadow-2xl group">
+                    <CardHeader>
+                      <motion.div
+                        className="w-64 h-64 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-24 shadow-lg"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <Icon className="h-32 w-32 text-white" />
+                      </motion.div>
+                      <CardTitle className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-base text-slate-600 leading-relaxed">
+                        {service.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-16 mb-32">
+                        {service.features.map((feature, idx) => (
+                          <motion.li
+                            key={idx}
+                            className="flex items-start gap-12 text-sm"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 + idx * 0.05 }}
+                          >
+                            <CheckCircle2 className="h-20 w-20 text-emerald-500 mt-2 flex-shrink-0" />
+                            <span className="text-slate-700 leading-relaxed">{feature}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                      <div className="flex items-center justify-between pt-24 border-t border-slate-200">
+                        <div>
+                          <div className="text-xs text-slate-500 mb-4 uppercase tracking-wide">Pricing</div>
+                          <div className="text-lg font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+                            {service.pricing}
+                          </div>
                         </div>
+                        <Button asChild className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700">
+                          <Link href={`/services/${service.slug}`} className="group/btn">
+                            Learn More
+                            <ArrowRight className="ml-8 h-16 w-16 group-hover/btn:translate-x-4 transition-transform" />
+                          </Link>
+                        </Button>
                       </div>
-                      <Button asChild>
-                        <Link href={`/services/${service.slug}`}>
-                          Learn More
-                          <ArrowRight className="ml-8 h-16 w-16" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               );
             })}
           </div>
@@ -183,63 +253,91 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-24">
-              Why Businesses Choose Palson Tax
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-32 mt-48">
-              <div>
-                <div className="text-4xl font-bold text-teal mb-8">20+</div>
-                <div className="text-sm font-semibold text-navy mb-4">
-                  Years Experience
-                </div>
-                <p className="text-sm text-slate-600">
-                  Serving clients since 2005
-                </p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-teal mb-8">500+</div>
-                <div className="text-sm font-semibold text-navy mb-4">
-                  Happy Clients
-                </div>
-                <p className="text-sm text-slate-600">
-                  Individuals and businesses
-                </p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-teal mb-8">4.9/5</div>
-                <div className="text-sm font-semibold text-navy mb-4">
-                  Client Rating
-                </div>
-                <p className="text-sm text-slate-600">
-                  Based on 247 reviews
-                </p>
-              </div>
+      <section className="py-64 lg:py-96 relative overflow-hidden">
+        <div className="absolute inset-0 bg-white"></div>
+
+        <div className="container-custom relative">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-64">
+              <h2 className="text-4xl md:text-5xl font-bold mb-16">
+                <span className="gradient-text">Why Businesses Choose Us</span>
+              </h2>
+              <p className="text-xl text-slate-600">
+                Trusted expertise backed by results
+              </p>
             </div>
-          </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-32">
+              {[
+                { number: "20+", label: "Years Experience", detail: "Serving clients since 2005" },
+                { number: "500+", label: "Happy Clients", detail: "Individuals and businesses" },
+                { number: "4.9/5", label: "Client Rating", detail: "Based on 247 reviews" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center p-32 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-100 hover:border-indigo-300 transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <div className="text-5xl font-bold gradient-text mb-12">{stat.number}</div>
+                  <div className="text-base font-semibold text-slate-900 mb-8">
+                    {stat.label}
+                  </div>
+                  <p className="text-sm text-slate-600">
+                    {stat.detail}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Coins Illustration */}
+            <motion.div
+              className="flex justify-center mt-64"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <AnimatedCoins />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-to-br from-teal to-emerald text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16">
-            Not Sure Which Service You Need?
-          </h2>
-          <p className="text-xl text-white/90 mb-32 max-w-2xl mx-auto">
-            Schedule a free consultation and we&apos;ll recommend the best solution
-            for your situation.
-          </p>
-          <Button
-            size="xl"
-            variant="outline"
-            asChild
-            className="bg-white text-teal border-white hover:bg-white/90"
+      <section className="relative py-64 lg:py-96 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-teal-600"></div>
+        <div className="absolute inset-0 accounting-grid opacity-10"></div>
+
+        <div className="container-custom relative text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            <Link href="/contact">Book Free Consultation</Link>
-          </Button>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-24">
+              Not Sure Which Service You Need?
+            </h2>
+            <p className="text-xl text-indigo-100 mb-48 max-w-2xl mx-auto leading-relaxed">
+              Schedule a free consultation and we'll recommend the best solution
+              for your situation.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-8 px-48 py-20 bg-white text-indigo-600 rounded-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+            >
+              Book Free Consultation
+              <ArrowRight className="w-20 h-20" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
