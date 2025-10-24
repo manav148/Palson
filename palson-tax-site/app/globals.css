@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --font-inter: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
-
   * {
     @apply border-slate-200;
   }
@@ -16,13 +12,12 @@
   }
 
   body {
-    @apply bg-surface text-slate-800 antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-white text-slate-900 antialiased;
   }
 
   /* Focus visible styles for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-teal ring-offset-2;
+    @apply outline-none ring-2 ring-slate-900 ring-offset-2;
   }
 
   /* Reduced motion support */
@@ -36,73 +31,10 @@
       scroll-behavior: auto !important;
     }
   }
-
-  /* Dark mode base */
-  .dark {
-    @apply bg-navy-900 text-slate-50;
-  }
-
-  .dark * {
-    @apply border-navy-700;
-  }
-}
-
-@layer components {
-  /* Link underline animation */
-  .link-underline {
-    @apply relative inline-block;
-  }
-
-  .link-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-1/2 h-[2px] w-0 bg-teal transition-all duration-250 ease-out;
-    transform: translateX(-50%);
-  }
-
-  .link-underline:hover::after {
-    @apply w-full;
-  }
-
-  /* Card hover effect */
-  .card-hover {
-    @apply transition-all duration-250 ease-out;
-  }
-
-  .card-hover:hover {
-    @apply shadow-lg -translate-y-1;
-  }
-
-  /* Glass effect */
-  .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
-  }
-
-  .dark .glass {
-    @apply bg-navy-800/80 border-navy-700/20;
-  }
-
-  /* Gradient text */
-  .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(45deg, #0EA5A6 0%, #22C55E 100%);
-  }
-
-  /* Skip link for accessibility */
-  .skip-link {
-    @apply absolute left-0 top-0 -translate-y-full bg-navy text-white px-16 py-8 focus:translate-y-0 z-50;
-  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
   .container-custom {
-    @apply max-w-7xl mx-auto px-16 sm:px-24 lg:px-32;
-  }
-
-  .section-padding {
-    @apply py-48 md:py-64 lg:py-96;
+    @apply max-w-4xl mx-auto px-24 sm:px-32 lg:px-48;
   }
 }
