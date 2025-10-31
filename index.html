@@ -22,44 +22,93 @@
   }
 }
 
-/* Fix calculator cards */
-.calculators_card__lGSHl {
-  background: white;
-  border-radius: 2rem;
-  padding: 0;
-  display: block;
+/* Responsive grid for calculators - Override external CSS */
+.calculators_wrapper__cE0m8 > div {
+  display: grid !important;
+  gap: 2rem;
+  padding: 2rem 0;
+  overflow: visible !important;
+}
+
+/* Mobile: 1 column */
+@media (max-width: 639px) {
+  .calculators_wrapper__cE0m8 > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .calculators_wrapper__cE0m8 > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .calculators_wrapper__cE0m8 > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Fix calculator cards - Override external CSS */
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl {
+  background: white !important;
+  border-radius: 2rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 17px 37px 0 rgba(41,42,45,.02);
-  overflow: hidden;
-}
-
-.calculators_card__lGSHl .calculators_media__LSewD {
-  width: 100%;
-  height: 240px;
+  box-shadow: 0 17px 37px 0 rgba(41,42,45,.02) !important;
+  overflow: hidden !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  width: 100% !important;
+  height: auto !important;
+  margin-right: 0 !important;
   position: relative;
-  overflow: hidden;
-  margin-bottom: 0;
 }
 
-.calculators_card__lGSHl .calculators_media__LSewD img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 40px 0 rgba(41,42,45,.08) !important;
 }
 
-.calculators_card__lGSHl > div:last-child {
-  padding: 3.2rem;
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl .calculators_media__LSewD {
+  width: 100% !important;
+  height: 240px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-bottom: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
 }
 
-.calculators_card__lGSHl h4 {
-  margin-bottom: 1.6rem;
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl .calculators_media__LSewD::before {
+  display: none !important;
 }
 
-.calculators_card__lGSHl .calculators_description__zDsHQ {
-  margin-bottom: 2.4rem;
-  color: var(--color-grey-700);
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl .calculators_media__LSewD img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  position: relative !important;
+}
+
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl > div:last-child {
+  padding: 3.2rem !important;
+  position: relative;
+}
+
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl h4 {
+  margin-bottom: 1.6rem !important;
+}
+
+.calculators_wrapper__cE0m8 .calculators_card__lGSHl .calculators_description__zDsHQ {
+  margin-bottom: 2.4rem !important;
+  color: var(--color-grey-700) !important;
 }
 
 /* Fix testimonial cards */
@@ -239,8 +288,8 @@ A portfolio built just for you
 </div>
 </div>
 <div class="container-l calculators_wrapper__cE0m8">
-<div style="display: flex; gap: 2rem; overflow-x: auto; padding: 2rem 0;">
-<a class="calculators_card__lGSHl" href="/tools/stock-option-tax-calculator" style="min-width: 300px;">
+<div>
+<a class="calculators_card__lGSHl" href="/tools/stock-option-tax-calculator">
 <div class="calculators_media__LSewD">
 <img loading="lazy" width="560" height="479" decoding="async" src="./images/calculator-1.png" style="width: 100%; height: 100%; max-width: 100%; object-fit: cover;">
 </div>
@@ -253,7 +302,7 @@ A portfolio built just for you
 </div>
 </div>
 </a>
-<a class="calculators_card__lGSHl" href="/tools/stock-option-exit-calculator" style="min-width: 300px;">
+<a class="calculators_card__lGSHl" href="/tools/stock-option-exit-calculator">
 <div class="calculators_media__LSewD">
 <img loading="lazy" width="560" height="479" decoding="async" src="./images/calculator-2.png" style="width: 100%; height: 100%; max-width: 100%; object-fit: cover;">
 </div>
@@ -266,13 +315,52 @@ A portfolio built just for you
 </div>
 </div>
 </a>
-<a class="calculators_card__lGSHl" href="/tools/alternative-minimum-tax-calculator" style="min-width: 300px;">
+<a class="calculators_card__lGSHl" href="/tools/alternative-minimum-tax-calculator">
 <div class="calculators_media__LSewD">
 <img loading="lazy" width="560" height="479" decoding="async" src="./images/calculator-3.png" style="width: 100%; height: 100%; max-width: 100%; object-fit: cover;">
 </div>
 <div>
 <h4 class="text-2xl">AMT Calculator</h4>
 <p class="text-m calculators_description__zDsHQ">Exercise incentive stock options without paying AMT.</p>
+<div class="calculators_button__TK0Tz">
+<span class="text-m calculators_label__40v11">Learn more</span>
+<div><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+</div>
+</div>
+</a>
+<a class="calculators_card__lGSHl" href="/tools/exercise-timing-planner">
+<div class="calculators_media__LSewD">
+<img loading="lazy" width="560" height="479" decoding="async" src="./images/4fee9b5c10bd8cbd3dae5e456a450be3f8cd6462-560x480.png" style="width: 100%; height: 100%; max-width: 100%; object-fit: cover;">
+</div>
+<div>
+<h4 class="text-2xl">Exercise Timing Planner</h4>
+<p class="text-m calculators_description__zDsHQ">Plan the optimal timing to exercise your stock options.</p>
+<div class="calculators_button__TK0Tz">
+<span class="text-m calculators_label__40v11">Learn more</span>
+<div><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+</div>
+</div>
+</a>
+<a class="calculators_card__lGSHl" href="/tools/equity-planner">
+<div class="calculators_media__LSewD">
+<img loading="lazy" width="560" height="479" decoding="async" src="./images/66de75fbd4fba63d732ad651bc65720151a23c6f-560x480.png" style="width: 100%; height: 100%; max-width: 100%; object-fit: cover;">
+</div>
+<div>
+<h4 class="text-2xl">Equity Planner</h4>
+<p class="text-m calculators_description__zDsHQ">Build a comprehensive plan for your equity compensation.</p>
+<div class="calculators_button__TK0Tz">
+<span class="text-m calculators_label__40v11">Learn more</span>
+<div><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+</div>
+</div>
+</a>
+<a class="calculators_card__lGSHl" href="/tools/equity-compensation-calculator">
+<div class="calculators_media__LSewD">
+<img loading="lazy" width="560" height="479" decoding="async" src="./images/744506c07e6472ca9d80937f468a128af1abee1f-560x480.png" style="width: 100%; height: 100%; max-width: 100%; object-fit: cover;">
+</div>
+<div>
+<h4 class="text-2xl">Equity Compensation Calculator</h4>
+<p class="text-m calculators_description__zDsHQ">Understand the full value of your equity compensation package.</p>
 <div class="calculators_button__TK0Tz">
 <span class="text-m calculators_label__40v11">Learn more</span>
 <div><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
