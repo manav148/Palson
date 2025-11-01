@@ -4,6 +4,10 @@
 <meta charSet="utf-8"/>
 <meta name="viewport" content="width=device-width"/>
 <title>Palson Accounting & Tax Services Inc. - Your Trusted Tax & Accounting Partner in Surrey, BC</title>
+<!-- Google Fonts - Inter for professional typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles/de7375902b7c8426.css"/>
 <link rel="stylesheet" href="./styles/ef46db3751d8e999.css"/>
 <link rel="stylesheet" href="./styles/8a9f3a74ed058c52.css"/>
@@ -15,6 +19,75 @@
 <link rel="stylesheet" href="./styles/c8d0026ebad66487.css"/>
 <link rel="stylesheet" href="./styles/mobile-responsive.css"/>
 <style>
+/* Professional Font Override - Inter for Tax & Accounting */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Global body font */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* All headings use Inter with appropriate weights */
+h1, h2, h3, h4, h5, h6,
+.heading-7xl,
+.heading-6xl,
+.heading-5xl,
+.heading-4xl,
+.heading-3xl,
+.text-7xl,
+.text-6xl,
+.text-5xl,
+.text-4xl,
+.text-3xl,
+.text-2xl,
+.text-xl,
+.text-l,
+.text-m,
+.text-s,
+.text-xs {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Large headings - use semibold for impact */
+h1, h2, .heading-7xl, .heading-6xl, .heading-5xl {
+  font-weight: 600 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Medium headings - use medium weight */
+h3, h4, .heading-4xl, .heading-3xl, .text-5xl, .text-4xl, .text-3xl {
+  font-weight: 500 !important;
+}
+
+/* Body text - regular weight */
+body, p, .text-l, .text-m, .text-s {
+  font-weight: 400 !important;
+}
+
+/* Emphasized text */
+em {
+  font-style: normal !important;
+  font-weight: 600 !important;
+}
+
+/* Strong/Bold text */
+strong, b {
+  font-weight: 700 !important;
+}
+
+/* Buttons - medium weight for clarity */
+.btn_btn__ClC_c,
+button {
+  font-weight: 500 !important;
+}
+
+/* Improve number readability for financial data */
+body {
+  font-feature-settings: 'tnum' 1, 'zero' 1;
+}
+
 /* Fix for image layout */
 @media(min-width:768px){
   .cardsGridLayout_left__dsxNj, .cardsGridLayout_right__RrRuy {
