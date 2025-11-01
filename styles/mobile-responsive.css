@@ -81,16 +81,23 @@
 @media (max-width: 767px) {
   .homepageHeader_homeHeader__3xZy3 {
     padding-top: 6rem !important;
-    padding-bottom: 4rem !important;
+    padding-bottom: 2rem !important;
   }
 
   .homepageHeader_content__CcL_s {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
+    display: flex !important;
+    flex-direction: column-reverse !important;
   }
 
   .homepageHeader_left__OxCf6 {
-    margin-bottom: 3rem;
+    margin-bottom: 0 !important;
+    margin-top: 3rem !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   /* Hero heading - optimize size for mobile */
@@ -98,6 +105,7 @@
     font-size: 2.8rem !important;
     line-height: 3.6rem !important;
     margin-bottom: 2rem;
+    text-align: center !important;
   }
 
   /* Hero description */
@@ -105,6 +113,7 @@
     font-size: 1.6rem !important;
     line-height: 2.4rem !important;
     margin-bottom: 2rem !important;
+    text-align: center !important;
   }
 
   /* Hero button */
@@ -112,23 +121,24 @@
     width: 100%;
     max-width: 300px;
     justify-content: center;
+    margin: 0 auto !important;
   }
 
-  /* Hero image container - force display */
+  /* Hero image container - force display with extended height */
   .homepageHeader_right__3eS__ {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
     padding: 0 2rem !important;
     display: block !important;
-    min-height: 250px !important;
+    min-height: 400px !important;
   }
 
   .homepageHeader_right__3eS__ > div,
   .homepageHeader_right__3eS__ > div > div {
     width: 100% !important;
     display: block !important;
-    min-height: 250px !important;
+    min-height: 400px !important;
     position: relative !important;
   }
 
@@ -138,7 +148,7 @@
     max-width: 100% !important;
     display: block !important;
     border-radius: 16px !important;
-    aspect-ratio: 1 / 1 !important;
+    aspect-ratio: 4 / 5 !important;
     object-fit: cover !important;
   }
 }
@@ -146,6 +156,11 @@
 /* === SERVICES SECTION & CARD GRIDS === */
 
 @media (max-width: 767px) {
+  /* Reduce gap between hero and services section */
+  section[data-slice="cardsGrid-1"] {
+    padding-top: 4rem !important;
+  }
+
   /* Card grid layout - force single column on mobile */
   .cardsGridLayout_wrapper__Bvr3F {
     flex-direction: column !important;
