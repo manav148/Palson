@@ -257,14 +257,27 @@
     margin-top: 2rem !important;
   }
 
+  .informationGrid_gridItem___TpPB {
+    text-align: center !important;
+  }
+
+  .informationGrid_title__1bvRl {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+
   .informationGrid_icon__o79TC {
     width: 40px !important;
     height: 40px !important;
+    margin-bottom: 1.6rem !important;
   }
 
   .informationGrid_label__rH5rP {
     font-size: 2rem !important;
     line-height: 2.8rem !important;
+    text-align: center !important;
   }
 }
 
