@@ -1,0 +1,600 @@
+/* ============================================
+   PALSON ACCOUNTING - MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* === GLOBAL MOBILE FIXES === */
+
+@media (max-width: 767px) {
+  /* Prevent horizontal scrolling on the entire page */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* Ensure all sections stay within viewport */
+  body > * {
+    max-width: 100vw !important;
+  }
+}
+
+/* === MOBILE NAVIGATION & HEADER === */
+
+/* Mobile: Hide secondary button, optimize header spacing */
+@media (max-width: 767px) {
+  .menu_wrapper__6rg0_ {
+    padding-top: 1.5rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .menu_logo__G4_9e {
+    width: auto !important;
+    height: 50px !important;
+  }
+
+  .menu_logo__G4_9e img {
+    height: 50px !important;
+    width: auto !important;
+  }
+
+  .menu_right__9tg9f {
+    gap: 0.5rem !important;
+  }
+
+  /* Hide "Call Us" button on very small screens, keep only primary CTA */
+  .menu_right__9tg9f .btn_secondary__oJ9Eg {
+    display: none !important;
+  }
+
+  /* Make remaining button more compact */
+  .menu_right__9tg9f .btn_btn__ClC_c {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    min-width: auto !important;
+    height: 40px !important;
+  }
+}
+
+/* Very small screens - further optimizations */
+@media (max-width: 374px) {
+  .menu_wrapper__6rg0_ {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .menu_logo__G4_9e {
+    height: 45px !important;
+  }
+
+  .menu_logo__G4_9e img {
+    height: 45px !important;
+  }
+
+  .menu_right__9tg9f .btn_btn__ClC_c {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* === HERO SECTION === */
+
+@media (max-width: 767px) {
+  .homepageHeader_homeHeader__3xZy3 {
+    padding-top: 6rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .homepageHeader_content__CcL_s {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .homepageHeader_left__OxCf6 {
+    margin-bottom: 3rem;
+  }
+
+  /* Hero heading - optimize size for mobile */
+  .homepageHeader_left__OxCf6 .heading-6xl {
+    font-size: 2.8rem !important;
+    line-height: 3.6rem !important;
+    margin-bottom: 2rem;
+  }
+
+  /* Hero description */
+  .homepageHeader_excerpt__nni15 {
+    font-size: 1.6rem !important;
+    line-height: 2.4rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Hero button */
+  .homepageHeader_button__WQeXY {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* Hero image container - force display */
+  .homepageHeader_right__3eS__ {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    display: block !important;
+    min-height: 250px !important;
+  }
+
+  .homepageHeader_right__3eS__ > div,
+  .homepageHeader_right__3eS__ > div > div {
+    width: 100% !important;
+    display: block !important;
+    min-height: 250px !important;
+    position: relative !important;
+  }
+
+  .homepageHeader_right__3eS__ img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+    border-radius: 16px !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+  }
+}
+
+/* === SERVICES SECTION & CARD GRIDS === */
+
+@media (max-width: 767px) {
+  /* Card grid layout - force single column on mobile */
+  .cardsGridLayout_wrapper__Bvr3F {
+    flex-direction: column !important;
+  }
+
+  .cardsGridLayout_left__dsxNj,
+  .cardsGridLayout_right__RrRuy {
+    width: 100% !important;
+    flex: none !important;
+    margin-bottom: 2rem;
+  }
+
+  /* Reverse layout on mobile for better flow */
+  .cardsGridLayout_reverse__Xv8UL {
+    flex-direction: column-reverse !important;
+  }
+
+  /* Card styling */
+  .cardsGridLayout_card__CwF7g {
+    margin-bottom: 2rem;
+  }
+
+  /* Hide equity.png and bookkeeping.png on mobile */
+  .cardsGridLayout_right__RrRuy .cardsGridLayout_media____KTH {
+    display: none !important;
+  }
+
+  /* Hide the entire right column on mobile since it only contains these images */
+  .cardsGridLayout_right__RrRuy {
+    display: none !important;
+  }
+
+  /* Reference cards */
+  .cardsGridLayout_reference__rUXOc {
+    padding: 3rem 2rem !important;
+  }
+
+  .cardsGridLayout_title__oCGhz {
+    font-size: 2.4rem !important;
+    line-height: 3.2rem !important;
+  }
+
+  /* List cards */
+  .cardsGridLayout_list__AOUWz {
+    padding: 2rem !important;
+  }
+}
+
+/* === TAX SCHOOL / CALCULATORS GRID === */
+
+@media (max-width: 767px) {
+  .calculators_title__M0wu4 .heading-6xl,
+  .calculators_title__M0wu4 .text-5xl {
+    font-size: 2.4rem !important;
+    line-height: 3.2rem !important;
+  }
+
+  .calculators_intro__NpNAG {
+    font-size: 1.6rem !important;
+    line-height: 2.4rem !important;
+  }
+
+  /* Ensure wrapper has proper padding */
+  .calculators_wrapper__cE0m8 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  /* Calculator cards - optimize for mobile */
+  .calculators_card__lGSHl {
+    margin-bottom: 2rem !important;
+  }
+
+  .calculators_card__lGSHl .calculators_media__LSewD {
+    height: 200px !important;
+  }
+
+  .calculators_card__lGSHl > div:last-child {
+    padding: 2rem !important;
+  }
+
+  .calculators_card__lGSHl h4 {
+    font-size: 2rem !important;
+    line-height: 2.8rem !important;
+  }
+}
+
+/* === BENEFITS / INFORMATION GRID === */
+
+@media (max-width: 767px) {
+  .informationGrid_informationGrid__xL5R3 {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .informationGrid_icon__o79TC {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .informationGrid_label__rH5rP {
+    font-size: 2rem !important;
+    line-height: 2.8rem !important;
+  }
+}
+
+/* === TESTIMONIALS SECTION === */
+
+@media (max-width: 767px) {
+  /* Prevent section overflow */
+  .testimonialMarquee_testimonialMarquee__HY8Bp {
+    overflow-x: hidden !important;
+  }
+
+  .testimonialMarquee_wrapper__cKdBv {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .testimonialMarquee_wrapper__cKdBv .container {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  /* Testimonial cards - override inline styles */
+  .testimonialMarquee_item__XaHIc {
+    min-width: 280px !important;
+    max-width: 300px !important;
+    padding: 2rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .testimonialMarquee_quote__iTAvO {
+    font-size: 1.7rem !important;
+    line-height: 2.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Scrolling container - constrain to viewport */
+  div[style*="overflow-x: auto"] {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 2rem 0 !important;
+    margin-left: 2rem !important;
+    margin-right: 0 !important;
+    width: calc(100vw - 2rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  /* Add scroll snap to cards */
+  div[style*="overflow-x: auto"] .testimonialMarquee_item__XaHIc {
+    scroll-snap-align: start !important;
+  }
+
+  /* Custom scrollbar */
+  div[style*="overflow-x: auto"]::-webkit-scrollbar {
+    height: 6px !important;
+  }
+
+  div[style*="overflow-x: auto"]::-webkit-scrollbar-track {
+    background: rgba(41, 42, 45, 0.05) !important;
+    border-radius: 3px !important;
+  }
+
+  div[style*="overflow-x: auto"]::-webkit-scrollbar-thumb {
+    background: rgba(41, 42, 45, 0.2) !important;
+    border-radius: 3px !important;
+  }
+
+  div[style*="overflow-x: auto"]::-webkit-scrollbar-thumb:hover {
+    background: rgba(41, 42, 45, 0.3) !important;
+  }
+}
+
+/* === CONTACT SECTION === */
+
+@media (max-width: 767px) {
+  .learnAndNewsletter_layout__94WiP {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .articlesAndNewsletterCard_card__qPtyc {
+    padding: 2.5rem 2rem !important;
+  }
+
+  .articlesAndNewsletterCard_title__VnNMw {
+    font-size: 2.4rem !important;
+    line-height: 3.2rem !important;
+  }
+
+  .articlesAndNewsletterCard_description__qX68D {
+    font-size: 1.5rem !important;
+    line-height: 2.3rem !important;
+  }
+
+  /* Call Now button - full width on mobile */
+  .articlesAndNewsletterCard_card__qPtyc .btn_btn__ClC_c {
+    width: 100% !important;
+  }
+}
+
+/* === SECTION TITLES & HEADINGS === */
+
+@media (max-width: 767px) {
+  .sectionTitle_title__Q5xyS.heading-6xl,
+  .sectionTitle_title__Q5xyS.text-5xl {
+    font-size: 2.6rem !important;
+    line-height: 3.4rem !important;
+  }
+
+  .sectionTitle_description__4iQFl {
+    font-size: 1.6rem !important;
+    line-height: 2.4rem !important;
+  }
+}
+
+/* === BUTTONS - ENSURE TOUCH-FRIENDLY SIZES === */
+
+@media (max-width: 767px) {
+  .btn_btn__ClC_c {
+    min-height: 44px !important;
+    padding: 12px 24px !important;
+    font-size: 15px !important;
+  }
+
+  .btn_medium__Qwvpf {
+    height: 48px !important;
+  }
+
+  /* Ensure icon buttons are touch-friendly */
+  .arrowIcon_icon__6f1LF {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* === SPACING & PADDING === */
+
+@media (max-width: 767px) {
+  /* Reduce section padding on mobile */
+  .padding-y {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  /* Container padding */
+  .container-l,
+  .container,
+  .container-s,
+  .container-xs {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  /* Slice padding */
+  .slice_slice__8ZgdD.padding-y {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  .slice_slice__8ZgdD.no-padding-top {
+    padding-top: 0 !important;
+  }
+
+  .slice_slice__8ZgdD.no-padding-bottom {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* === TEXT READABILITY === */
+
+@media (max-width: 767px) {
+  /* Ensure body text is readable */
+  body {
+    font-size: 1.6rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Adjust text sizes for better readability */
+  .text-l {
+    font-size: 1.7rem !important;
+    line-height: 2.6rem !important;
+  }
+
+  .text-m {
+    font-size: 1.5rem !important;
+    line-height: 2.4rem !important;
+  }
+
+  .text-2xl {
+    font-size: 1.9rem !important;
+    line-height: 2.8rem !important;
+  }
+
+  .text-3xl {
+    font-size: 2.2rem !important;
+    line-height: 3rem !important;
+  }
+}
+
+/* === IMAGES - ENSURE PROPER DISPLAY === */
+
+@media (max-width: 767px) {
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Fix for images that aren't displaying */
+  img[src*="tax_experts.png"],
+  img[src*="equity.png"],
+  img[src*="bookkeeping.png"] {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 250px !important;
+    object-fit: cover !important;
+  }
+}
+
+/* === LANDSCAPE ORIENTATION === */
+
+@media (max-width: 767px) and (orientation: landscape) {
+  /* Reduce vertical padding in landscape */
+  .padding-y {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .homepageHeader_homeHeader__3xZy3 {
+    padding-top: 4rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Make hero section use more horizontal space */
+  .homepageHeader_content__CcL_s {
+    flex-direction: row !important;
+    gap: 2rem;
+  }
+
+  .homepageHeader_left__OxCf6,
+  .homepageHeader_right__3eS__ {
+    flex: 1 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* === VERY SMALL SCREENS (< 375px) === */
+
+@media (max-width: 374px) {
+  .heading-6xl {
+    font-size: 2.4rem !important;
+    line-height: 3.2rem !important;
+  }
+
+  .text-5xl {
+    font-size: 2.2rem !important;
+    line-height: 3rem !important;
+  }
+
+  .padding-y {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+
+  .container-l,
+  .container,
+  .container-s,
+  .container-xs {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
+
+/* === LARGE MOBILE / SMALL TABLET (375px - 639px) === */
+
+@media (min-width: 375px) and (max-width: 639px) {
+  /* Slightly larger touch targets for this range */
+  .btn_btn__ClC_c {
+    min-height: 48px !important;
+  }
+
+  /* Show Call Us button on slightly larger mobiles */
+  .menu_right__9tg9f .btn_secondary__oJ9Eg {
+    display: inline-flex !important;
+  }
+}
+
+/* === TABLET PORTRAIT (640px - 1023px) === */
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  /* Card grids - 2 columns on tablet */
+  .calculators_wrapper__cE0m8 > div {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Hero section - can use side-by-side layout */
+  .homepageHeader_content__CcL_s {
+    flex-direction: row !important;
+  }
+
+  .homepageHeader_left__OxCf6,
+  .homepageHeader_right__3eS__ {
+    flex: 1 !important;
+  }
+
+  /* Services cards can be side-by-side */
+  .cardsGridLayout_wrapper__Bvr3F {
+    flex-direction: row !important;
+  }
+
+  .cardsGridLayout_left__dsxNj {
+    flex: 1.2 !important;
+  }
+
+  .cardsGridLayout_right__RrRuy {
+    flex: 0.8 !important;
+  }
+}
+
+/* === ACCESSIBILITY IMPROVEMENTS === */
+
+@media (max-width: 767px) {
+  /* Improve tap target spacing */
+  a, button, input, select, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Focus states for keyboard navigation */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-blue-700);
+    outline-offset: 2px;
+  }
+
+  /* Smooth scrolling for hash links */
+  html {
+    scroll-behavior: smooth;
+  }
+}
